@@ -1,304 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Applicant Form</title>
+<title>Applicant Submission</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background: #f4f6f8;
-        }
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+}
 
-        .container {
-            max-width: 550px;
-            margin: 30px auto;
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-        }
+.container {
+    max-width: 600px;
+    margin: 30px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
 
-        h2 {
-            text-align: center;
-            margin-top: 0;
-            margin-bottom: 25px;
-        }
+h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
 
-        label {
-            display: block;
-            margin-top: 15px;
-            margin-bottom: 6px;
-            font-weight: bold;
-        }
+label {
+    display: block;
+    margin-top: 14px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
 
-        input,
-        textarea,
-        select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 16px;
-        }
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
 
-        textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
+input[readonly] {
+    background: #f1f3f5;
+}
 
-        button {
-            width: 100%;
-            margin-top: 25px;
-            padding: 13px;
-            border: none;
-            border-radius: 6px;
-            background: #1976d2;
-            color: white;
-            font-size: 17px;
-            cursor: pointer;
-        }
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
 
-        button:hover {
-            background: #125ca5;
-        }
+button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 13px;
+    border: none;
+    border-radius: 6px;
+    background: #1976d2;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+}
 
-        button:disabled {
-            background: #999;
-            cursor: not-allowed;
-        }
+button:hover {
+    background: #125ca5;
+}
 
-        #message {
-            margin-top: 20px;
-            padding: 12px;
-            border-radius: 6px;
-            display: none;
-            text-align: center;
-        }
+button:disabled {
+    background: #999;
+    cursor: not-allowed;
+}
 
-        .success {
-            background: #e8f5e9;
-            color: #2e7d32;
-        }
+#message {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 6px;
+    display: none;
+    text-align: center;
+}
 
-        .error {
-            background: #ffebee;
-            color: #c62828;
-        }
-    </style>
+.success {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.error {
+    background: #ffebee;
+    color: #c62828;
+}
+
+.loading {
+    background: #fff8e1;
+    color: #856404;
+}
+</style>
 </head>
 
 <body>
 
 <div class="container">
 
-    <h2>Applicant Submission</h2>
+<h2>Applicant Submission</h2>
 
-    <form id="applicantForm">
+<form id="applicantForm">
 
-        <label for="applicationNo">
-            Application No.
-        </label>
+    <label for="applicationNo">
+        Application No.
+    </label>
 
-        <input
-            type="text"
-            id="applicationNo"
-            name="applicationNo"
-            placeholder="Enter Application No."
-            required
-        >
-
-
-        <label for="mobile">
-            Mobile No.
-        </label>
-
-        <input
-            type="tel"
-            id="mobile"
-            name="mobile"
-            placeholder="Enter Mobile No."
-            maxlength="10"
-            inputmode="numeric"
-            required
-        >
+    <input
+        type="text"
+        id="applicationNo"
+        placeholder="Enter Application No."
+        autocomplete="off"
+    >
 
 
-        <label for="name">
-            Name
-        </label>
+    <label for="mobile">
+        Mobile No.
+    </label>
 
-        <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Enter Applicant Name"
-            required
-        >
-
-
-        <label for="ac">
-            AC
-        </label>
-
-        <input
-            type="text"
-            id="ac"
-            name="ac"
-            placeholder="Enter AC"
-            required
-        >
+    <input
+        type="tel"
+        id="mobile"
+        placeholder="Enter Mobile No."
+        maxlength="10"
+        inputmode="numeric"
+        autocomplete="off"
+    >
 
 
-        <label for="remarks">
-            Remarks
-        </label>
+    <label for="name">
+        Applicant Name
+    </label>
 
-        <textarea
-            id="remarks"
-            name="remarks"
-            placeholder="Enter remarks"
-        ></textarea>
-
-
-        <button type="submit" id="submitButton">
-            Submit
-        </button>
-
-    </form>
+    <input
+        type="text"
+        id="name"
+        readonly
+    >
 
 
-    <div id="message"></div>
+    <label for="district">
+        District
+    </label>
+
+    <input
+        type="text"
+        id="district"
+        readonly
+    >
+
+
+    <label for="block">
+        Block / Municipality
+    </label>
+
+    <input
+        type="text"
+        id="block"
+        readonly
+    >
+
+
+    <label for="gp">
+        GP / Ward
+    </label>
+
+    <input
+        type="text"
+        id="gp"
+        readonly
+    >
+
+
+    <label for="ac">
+        AC
+    </label>
+
+    <input
+        type="text"
+        id="ac"
+        placeholder="Enter AC"
+        required
+    >
+
+
+    <label for="remarks">
+        Remarks
+    </label>
+
+    <textarea
+        id="remarks"
+        placeholder="Enter remarks"
+    ></textarea>
+
+
+    <button type="submit" id="submitButton">
+        Submit
+    </button>
+
+</form>
+
+<div id="message"></div>
 
 </div>
 
-
-<script>
-
-document
-    .getElementById("applicantForm")
-    .addEventListener("submit", submitForm);
-
-
-function submitForm(event) {
-
-    event.preventDefault();
-
-    const button = document.getElementById("submitButton");
-    const message = document.getElementById("message");
-
-    const applicationNo =
-        document.getElementById("applicationNo").value.trim();
-
-    const mobile =
-        document.getElementById("mobile").value.trim();
-
-    const name =
-        document.getElementById("name").value.trim();
-
-    const ac =
-        document.getElementById("ac").value.trim();
-
-    const remarks =
-        document.getElementById("remarks").value.trim();
-
-
-    // Basic validation
-
-    if (!applicationNo || !mobile || !name || !ac) {
-
-        showMessage(
-            "Please fill all required fields.",
-            "error"
-        );
-
-        return;
-    }
-
-
-    if (!/^\d{10}$/.test(mobile)) {
-
-        showMessage(
-            "Please enter a valid 10 digit mobile number.",
-            "error"
-        );
-
-        return;
-    }
-
-
-    // Data object
-
-    const data = {
-        applicationNo: applicationNo,
-        mobile: mobile,
-        name: name,
-        ac: ac,
-        remarks: remarks
-    };
-
-
-    console.log("Submitted data:", data);
-
-
-    /*
-       PUT YOUR BACKEND/API CALL HERE.
-
-       Example:
-
-       fetch("YOUR_API_URL", {
-           method: "POST",
-           headers: {
-               "Content-Type": "application/json"
-           },
-           body: JSON.stringify(data)
-       });
-    */
-
-
-    button.disabled = true;
-    button.innerText = "Submitting...";
-
-
-    // Temporary success response
-
-    setTimeout(() => {
-
-        showMessage(
-            "Application submitted successfully.",
-            "success"
-        );
-
-        document.getElementById("applicantForm").reset();
-
-        button.disabled = false;
-        button.innerText = "Submit";
-
-    }, 500);
-
-}
-
-
-function showMessage(text, type) {
-
-    const message = document.getElementById("message");
-
-    message.innerText = text;
-
-    message.className = type;
-
-    message.style.display = "block";
-}
-
-</script>
+<script src="app.js"></script>
 
 </body>
 </html>
